@@ -3,11 +3,24 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {Amplify} from 'aws-amplify';
+import { BrowserRouter } from 'react-router-dom';
+
+Amplify.configure({
+  Auth: {
+    Cognito: {
+      userPoolClientId: '16ckocsde1f8s47l4arb787v6c',
+      userPoolId: 'ap-northeast-1_znuGY760N',
+    }
+  }
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 
